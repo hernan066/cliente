@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import {
   Sheet,
@@ -31,43 +31,43 @@ const DashboardMobileHeader = () => {
       link: "/dashboard",
       label: "Home",
       icon: <Home size={20} />,
-      isActive: pathname === '/dashboard',
+      isActive: pathname === "/dashboard",
     },
     {
       link: "/dashboard/orders",
       label: "Orders",
       icon: <ClipboardList size={20} />,
-      isActive: pathname.includes("dashboard/orders"),
+      isActive: pathname?.includes("dashboard/orders"),
     },
     {
       link: "/dashboard/products",
       label: "Products",
       icon: <Box size={20} />,
-      isActive: pathname.includes("dashboard/products"),
+      isActive: pathname?.includes("dashboard/products"),
     },
     {
       link: "/dashboard/categories",
       label: "Categories",
       icon: <Layers size={20} />,
-      isActive: pathname.includes("dashboard/categories"),
+      isActive: pathname?.includes("dashboard/categories"),
     },
     {
       link: "/dashboard/banners",
       label: "Banners",
       icon: <Images size={20} />,
-      isActive: pathname.includes("dashboard/banners"),
+      isActive: pathname?.includes("dashboard/banners"),
     },
     {
       link: "/dashboard/blogs",
       label: "Blogs",
       icon: <Book size={20} />,
-      isActive: pathname.includes("dashboard/blogs"),
+      isActive: pathname?.includes("dashboard/blogs"),
     },
     {
       link: "/dashboard/customers",
       label: "Customers",
       icon: <Users size={20} />,
-      isActive: pathname.includes("dashboard/customers"),
+      isActive: pathname?.includes("dashboard/customers"),
     },
   ];
 

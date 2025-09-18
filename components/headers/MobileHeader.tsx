@@ -34,25 +34,25 @@ const MobileHeader = () => {
       link: "/my-account",
       label: "My Account",
       icon: <User />,
-      isActive: pathname.includes("/my-account"),
+      isActive: pathname?.includes("/my-account"),
     },
     {
       link: "/wishlist",
       label: "Wishlist",
       icon: <Heart />,
-      isActive: pathname.includes("/wishlist"),
+      isActive: pathname?.includes("/wishlist"),
     },
     {
       link: "/my-orders",
       label: "My Orders",
       icon: <ListOrdered />,
-      isActive: pathname.includes("/my-orders"),
+      isActive: pathname?.includes("/my-orders"),
     },
     {
       link: "/help",
       label: "Help",
       icon: <HelpCircle />,
-      isActive: pathname.includes("/help"),
+      isActive: pathname?.includes("/help"),
     },
   ];
 
@@ -67,13 +67,13 @@ const MobileHeader = () => {
       link: "/shop",
       label: "Shop",
       icon: <Store />,
-      isActive: pathname.includes("/shop"),
+      isActive: pathname?.includes("/shop"),
     },
     {
       link: "/blog",
       label: "Blogs",
       icon: <Text />,
-      isActive: pathname.includes("/blog"),
+      isActive: pathname?.includes("/blog"),
     },
   ];
 

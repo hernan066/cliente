@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 interface PaginationProps {
   totalPages: number;
   currentPage: number;
-  pageName: string
+  pageName: string;
 }
 
 const Pagination = ({ pageName, totalPages, currentPage }: PaginationProps) => {
@@ -13,7 +13,7 @@ const Pagination = ({ pageName, totalPages, currentPage }: PaginationProps) => {
   const pathname = usePathname();
 
   const handleChange = (page: number) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
 
     if (params.get(pageName)) {
       params.delete(pageName);

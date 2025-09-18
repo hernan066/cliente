@@ -12,7 +12,7 @@ const CategoriesCollection = () => {
   const searchParams = useSearchParams();
 
   const handleCollectionClick = (collectionName: string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams?.toString() ?? "");
     params.set("category", collectionName);
     router.push(`shop?${params.toString()}`);
   };

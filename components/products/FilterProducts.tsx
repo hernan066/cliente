@@ -24,10 +24,10 @@ const FilterProducts = () => {
   const pathname = usePathname();
 
   // Get filter values from search params on initial render
-  const initialPrice = searchParams.get("max") || "5000";
-  const initialCategory = searchParams.get("category");
-  const initialColor = searchParams.get("color");
-  const initialBrand = searchParams.get("brand");
+  const initialPrice = searchParams?.get("max") || "5000";
+  const initialCategory = searchParams?.get("category");
+  const initialColor = searchParams?.get("color");
+  const initialBrand = searchParams?.get("brand");
 
   // Update state with initial values
   useEffect(() => {
@@ -39,7 +39,7 @@ const FilterProducts = () => {
 
   // Selection handler functions with search param updates
   const handleCategorySelection = (category: string) => {
-    const newSearchParams = new URLSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams(searchParams?.toString() || "");
     if (category === selectedCategory) {
       newSearchParams.delete("category");
     } else {
@@ -68,14 +68,14 @@ const FilterProducts = () => {
     const min = Math.min(minPrice, maxPrice);
     const max = Math.max(minPrice, maxPrice);
 
-    const newSearchParams = new URLSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams(searchParams?.toString() || "");
     newSearchParams.set("min", `${min}`);
     newSearchParams.set("max", `${max}`);
     router.push(`${pathname}?${newSearchParams}`);
   };
 
   const handleColorSelection = (color: string) => {
-    const newSearchParams = new URLSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams(searchParams?.toString() || "");
     if (color === selectedColor) {
       newSearchParams.delete("color");
     } else {
@@ -86,7 +86,7 @@ const FilterProducts = () => {
   };
 
   const handleBrandSelection = (brand: string) => {
-    const newSearchParams = new URLSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams(searchParams?.toString() || "");
     if (brand === selectedBrand) {
       newSearchParams.delete("brand");
     } else {

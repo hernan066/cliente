@@ -20,7 +20,7 @@ const MobileSearch = () => {
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams?.toString() || "");
 
     if (params.get("query")) {
       params.delete("query");

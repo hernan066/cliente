@@ -1,10 +1,11 @@
-
+"use client";
 import ProductGallery from "@/components/product/ProductGallery";
 import { productsData } from "@/data/products/productsData";
 import React from "react";
 import RelatedProducts from "@/components/products/RelatedProducts";
 import BreadcrumbComponent from "@/components/others/Breadcrumb";
 import ProductDetails from "@/components/product/ProductDetails";
+import { useParams } from "next/navigation";
 
 // Define the props interface for the component
 interface ProductIdPageProps {
@@ -12,12 +13,13 @@ interface ProductIdPageProps {
 }
 
 // Define the main component
-const ProductIdPage = ({ params }: ProductIdPageProps) => {
-  // TODO: fetch product data with the productId
+const ProductIdPage = () => {
+  const params = useParams();
+  const productId = params?.productId;
 
   // Find the product with the specified ID from the products data
   const product = productsData.find(
-    (product) => product.id === Number(params.productId)
+    (product) => product.id === Number(productId)
   );
 
   // Filter related products based on the category of the current product
@@ -36,7 +38,7 @@ const ProductIdPage = ({ params }: ProductIdPageProps) => {
         {/* Product Gallery */}
         <ProductGallery isInModal={false} images={product?.images!} />
         {/* product details */}
-        <ProductDetails product={product!}/>
+        <ProductDetails product={product!} />
       </div>
       {/* Related Products */}
       <RelatedProducts products={relatedProducts} />

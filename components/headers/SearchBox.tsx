@@ -13,7 +13,9 @@ const SearchBox = () => {
 
   const onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(
+      searchParams ? searchParams.toString() : ""
+    );
 
     if (params.get("query")) {
       params.delete("query");
@@ -23,15 +25,14 @@ const SearchBox = () => {
     }
 
     router.push(`/search?${params}`);
-    setSearchTerm('')
+    setSearchTerm("");
   };
 
-
   useEffect(() => {
-    if(pathname !== '/search'){
-      setSearchTerm('')
+    if (pathname !== "/search") {
+      setSearchTerm("");
     }
-  },[pathname])
+  }, [pathname]);
 
   return (
     <form

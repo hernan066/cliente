@@ -40,31 +40,31 @@ const AccountPopover: React.FC<AccountPopoverProps> = ({ user }) => {
       link: "/my-account",
       label: "Mi cuenta",
       icon: <User />,
-      isActive: pathname.includes("/my-account"),
+      isActive: pathname?.includes("/my-account"),
     },
     {
       link: "/wishlist",
       label: "Mi lista",
       icon: <Heart />,
-      isActive: pathname.includes("/wishlist"),
+      isActive: pathname?.includes("/wishlist"),
     },
     {
       link: "/my-orders",
       label: "Mis ordenes",
       icon: <ListOrdered />,
-      isActive: pathname.includes("/my-orders"),
+      isActive: pathname?.includes("/my-orders"),
     },
     {
       link: "/seller",
       label: "Ingresa como vendedor",
       icon: <Package />,
-      isActive: pathname.includes("/seller"),
+      isActive: pathname?.includes("/seller"),
     },
     {
       link: "/help",
       label: "Ayuda",
       icon: <HelpCircle />,
-      isActive: pathname.includes("/help"),
+      isActive: pathname?.includes("/help"),
     },
   ];
 

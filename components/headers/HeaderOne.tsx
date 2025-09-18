@@ -32,7 +32,7 @@ const HeaderOne = () => {
     {
       label: "Shop",
       link: "/shop",
-      isActive: pathname.startsWith("/shop"),
+      isActive: pathname?.startsWith("/shop"),
     },
   ];
 
