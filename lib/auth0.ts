@@ -19,4 +19,15 @@ export const auth0 = new Auth0Client({
     audience: process.env.AUTH0_AUDIENCE,
   },
   enableParallelTransactions: false, // Single-transaction mode
+  transactionCookie: {
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    domain:
+      process.env.NODE_ENV === "production"
+        ? "https://cliente-dnxa.vercel.app/"
+        : "localhost",
+    maxAge: 60 * 15, // 15 minutes
+    path: "/",
+    prefix: "auth0.",
+  },
 });
