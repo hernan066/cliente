@@ -2,11 +2,18 @@ import type { NextRequest } from "next/server";
 import { auth0 } from "./lib/auth0";
 
 export async function middleware(request: NextRequest) {
-  return await auth0.middleware(request);
+  try {
+    // Esto verifica si el usuario está logueado
+    return await auth0.middleware(request);
+  } catch (err) {
+    // Redirige al login si no está autenticado
+    return Response.redirect(new URL("/auth/login", request.url));
+  }
 }
 
 export const config = {
   matcher: [
+    "/dashboard/:path*",
     /*
      * Match all request paths except for the ones starting with:
      * - _next/static (static files)
