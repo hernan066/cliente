@@ -28,3 +28,13 @@ export async function middleware(request: NextRequest) {
   // Usuario autenticado → permitir acceso
   return authRes;
 }
+
+export const config = {
+  matcher: [
+    /*
+      Excluye rutas de _next, favicon, robots.txt, sitemap, etc.
+      Esto evita que middleware bloquee imágenes o scripts.
+    */
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  ],
+};

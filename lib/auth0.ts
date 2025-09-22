@@ -18,7 +18,7 @@ export const auth0 = new Auth0Client({
     scope: process.env.AUTH0_SCOPE,
     audience: process.env.AUTH0_AUDIENCE,
   },
-  enableParallelTransactions: false, // Single-transaction mode
+  /*  enableParallelTransactions: false, // Single-transaction mode
   transactionCookie: {
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -29,5 +29,5 @@ export const auth0 = new Auth0Client({
     maxAge: 60 * 15, // 15 minutes
     path: "/",
     prefix: "auth0.",
-  },
+  }, */
 });
