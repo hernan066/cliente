@@ -5,16 +5,9 @@ export async function middleware(request: NextRequest) {
   // Inicializa el middleware de Auth0
   const authRes = await auth0.middleware(request);
 
-  // No interferir con recursos estáticos o Auth0
-  const path = request.nextUrl.pathname;
-  if (
-    path.startsWith("/_next") ||
-    path.startsWith("/auth") ||
-    path.startsWith("/favicon.ico") ||
-    path.startsWith("/robots.txt") ||
-    path.startsWith("/sitemap.xml")
-  ) {
-    return NextResponse.next();
+  // No interferir con rutas de Auth0
+  if (request.nextUrl.pathname.startsWith("/auth")) {
+    return authRes;
   }
 
   // Rutas públicas
