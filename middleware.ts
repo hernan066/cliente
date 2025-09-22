@@ -2,23 +2,18 @@ import type { NextRequest } from "next/server";
 import { auth0 } from "./lib/auth0";
 
 export async function middleware(request: NextRequest) {
-  try {
-    // Esto verifica si el usuario está logueado
-    return await auth0.middleware(request);
-  } catch (err) {
-    // Redirige al login si no está autenticado
-    return Response.redirect(new URL("/auth/login", request.url));
-  }
+  return await auth0.middleware(request);
 }
 
 export const config = {
   matcher: [
-    "/dashboard/:path*",
     /*
      * Match all request paths except for the ones starting with:
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      */
+    /* "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)", */
+    "/dashboard/:path*", // rutas privadas
   ],
 };
